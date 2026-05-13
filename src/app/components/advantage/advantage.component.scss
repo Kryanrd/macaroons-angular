@@ -1,0 +1,37 @@
+.advantages__item-number {
+    background-color: #821328;
+    border-radius: 50%;
+    font-size: 60px;
+    font-family: GilroyExtraBold, sans-serif;
+    color: rgb(255, 255, 255);
+    width: 70px;
+    height: 70px;
+    position: relative;
+    margin-bottom: 12px;
+    transition: all 0.3s ease;
+}
+
+.advantages__span {
+    position: absolute;
+    bottom: -16px;
+    left: 20px;
+}
+
+.advantages__item:hover .advantages__item-number {
+    background-color: #eba8b1;
+    color: #821328;
+}
+
+.advantages__item-title {
+    font-size: 20px;
+    font-family: GilroyExtraBold, sans-serif;
+    color: rgb(51, 25, 7);
+    margin-bottom: 21px;
+}
+
+.advantages__item-description {
+    font-size: 15px;
+    font-family: GilroyMedium, sans-serif;
+    color: rgb(51, 25, 7);
+    line-height: 1.333;
+}

@@ -1,0 +1,15 @@
+<div class="products__item">
+    <div class="products__image">
+        <img src="assets/images/{{product.image}}" alt="Macaron {{index+1}}">
+    </div>
+    <h4 class="products__title">{{product.title}}</h4>
+    <div class="products__info-actions">
+        <div class="products__info">
+            <span class="products__count">{{product.count}}</span>
+            <span class="products__price">{{product.price | currency:'RUB':'руб' }}</span>
+        </div>
+        <button class="btn products__btn" (click)="addToCart(product)" effects
+            defaultBgColor="linear-gradient(90deg, rgb(113, 8, 30) 0%, rgb(215, 72, 92) 100%)"
+            hoverBgColor="linear-gradient(90deg, #7a0c28 0%, #d44a62 100%)">Заказать</button>
+    </div>
+</div>

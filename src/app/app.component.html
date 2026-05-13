@@ -50,7 +50,7 @@
       </ul>
     </nav>
     <div class="phone header__phone">
-      {{phoneNumber}}
+      {{phoneNumber | formatPhoneNumber}}
     </div>
   </div>
 </header>
@@ -63,7 +63,9 @@
       <p class="main__description">
         Побалуйте себя и своих близких самыми вкусными и ароматными домашними пироженками Macaroon!
       </p>
-      <button class="btn main__btn" (click)="scrollTo(productsElement)">Выбрать макарун</button>
+      <button class="btn main__btn" (click)="scrollTo(productsElement)" effects
+        defaultBgColor="linear-gradient(90deg, rgb(113, 8, 30) 0%, rgb(215, 72, 92) 100%)"
+        hoverBgColor="linear-gradient(90deg, #7a0c28 0%, #d44a62 100%)">Выбрать макарун</button>
     </div>
     <div class="main__image">
       <img src="assets/images/macaroons_img.png" alt="Macaroons" class="main__image-img">
@@ -89,13 +91,7 @@
       </div>
     </div>
     <div class="advantages__items">
-      <div class="advantages__item" *ngFor="let advantage of advantages; let i = index">
-        <div class="advantages__item-number">
-          <span class="advantages__span">{{i+1}}</span>
-        </div>
-        <h3 class="advantages__item-title">{{advantage.title}}</h3>
-        <p class="advantages__item-description">{{advantage.description}}</p>
-      </div>
+      <advantage *ngFor="let advantage of advantages; let i = index" [advantage]="advantage" [index]="i"></advantage>
     </div>
   </div>
 </section>
@@ -103,19 +99,7 @@
   <div class="container products__container">
     <h2 class="products__heading">Выберите свой макарун</h2>
     <div class="products__items">
-      <div class="products__item" *ngFor="let product of products; let i = index">
-        <div class="products__image">
-          <img src="assets/images/{{product.image}}" alt="Macaron {{i}}">
-        </div>
-        <h4 class="products__title">{{product.title}}</h4>
-        <div class="products__info-actions">
-          <div class="products__info">
-            <span class="products__count">{{product.count}}</span>
-            <span class="products__price">{{product.price}}</span>
-          </div>
-          <button class="btn products__btn" (click)="addToCart(product, orderElement)">Заказать</button>
-        </div>
-      </div>
+      <product *ngFor="let product of products; let i = index" [product]="product" [index]="i" (addToCartEvent)="onProductAdded($event)"></product>
     </div>
   </div>
 </section>
@@ -140,8 +124,10 @@
           [(ngModel)]="formValues.productTitle">
         <div class="order__form-title">Заполните данные для заказа</div>
         <input type="text" class="order__input" placeholder="Ваше имя" [(ngModel)]="formValues.name">
-        <input type="text" class="order__input" placeholder="+375 (__) ___ - __ - __" [(ngModel)]="formValues.phone">
-        <button class="btn order__btn" (click)="createOrder()">Оформить заказ</button>
+        <input type="text" class="order__input" placeholder="{{phoneNumber | formatPhoneNumber}}" [(ngModel)]="formValues.phone">
+        <button class="btn order__btn" (click)="createOrder()" effects
+          defaultBgColor="linear-gradient(90deg, rgb(113, 8, 30) 0%, rgb(215, 72, 92) 100%)"
+          hoverBgColor="linear-gradient(90deg, #7a0c28 0%, #d44a62 100%)">Оформить заказ</button>
         <div class="strawberry-animation">
           <img src="assets/images/strawberry2.png" alt="Strawberry">
         </div>
@@ -172,15 +158,18 @@
       <div class="footer__text">Мы в Instagram</div>
     </a>
     <div class="phone footer__phone">
-      {{phoneNumber}}
+      {{phoneNumber | formatPhoneNumber}}
     </div>
   </div>
 </footer>
-<div class="present-container" [style.display]="showPresent ? 'flex' : 'none'">
-  <div class="present">
-    <img src="assets/images/present.png" alt="Present">
+<div class="cart-container" [style.display]="showPresent ? 'flex' : 'none'">
+  <div class="cart">
+    <img src="assets/images/cart.png" alt="Cart">
   </div>
-  <div class="speech-bubble">
-    Оформите заказ и получите подарок!
+  <div class="products-count" *ngIf="cartService.productsCount > 0">
+    {{cartService.productsCount}}
+  </div>
+  <div class="speech-bubble" *ngIf="cartService.totalAmount > 0">
+    {{cartService.totalAmount | currency:'RUB':'руб' }}
   </div>
 </div>
