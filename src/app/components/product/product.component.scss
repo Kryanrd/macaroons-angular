@@ -54,3 +54,9 @@
     font-size: 16px;
     border-radius: 25px;
 }
+
+@media screen and (max-width: 1023px) {
+    .products__item {
+        max-width: 263px;
+    }
+}

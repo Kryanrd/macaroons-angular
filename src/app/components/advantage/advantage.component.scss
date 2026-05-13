@@ -35,3 +35,14 @@
     color: rgb(51, 25, 7);
     line-height: 1.333;
 }
+
+@media screen and (max-width: 1023px) {
+    .advantages__item {
+        text-align: center;
+    }
+
+    .advantages__item-number {
+        margin: 0 auto;
+        margin-bottom: 13px;
+    }
+}
