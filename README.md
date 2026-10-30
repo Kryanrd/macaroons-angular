@@ -1,27 +1,71 @@
-# MacaroonsAngular
+# Macaroons Store
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.13.
+## О проекте
 
-## Development server
+Macaroons Store - веб-приложение интернет-магазина макарунов, разработанное с использованием Angular. Приложение позволяет просматривать каталог продукции, знакомиться с ассортиментом, добавлять товары в корзину и управлять заказом.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Проект демонстрирует разработку SPA-приложения с использованием Angular: создание компонентов и сервисов, организацию маршрутизации, управление состоянием пользовательской корзины и обработку событий взаимодействия с интерфейсом.
 
-## Code scaffolding
+## Функциональность
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Каталог товаров:** просмотр ассортимента макарунов и информации о продукции.
+- **Категории товаров:** навигация по категориям для удобного поиска продукции.
+- **Корзина:** добавление товаров, изменение их количества и автоматический пересчёт общей стоимости заказа.
+- **Авторизация:** вход и выход пользователя с обновлением состояния корзины без перезагрузки страницы.
+- **Интерактивные элементы:** выпадающие меню, аккордеоны и всплывающие окна.
+- **Уведомления:** отображение всплывающего окна через заданный промежуток времени.
+- **Адаптивный интерфейс:** использование Bootstrap для оформления страниц и адаптации элементов под разные размеры экранов.
 
-## Build
+## Технологии
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **Angular 14** - основной framework для разработки приложения.
+- **TypeScript** - типизация и реализация клиентской логики.
+- **HTML5** - структура страниц и компонентов.
+- **SCSS** - стилизация и организация CSS-кода.
+- **Bootstrap 5.2**  оформление интерфейса и адаптивная сетка.
+- **Angular Material** - компоненты пользовательского интерфейса.
+- **ng-bootstrap** - интеграция Bootstrap-компонентов с Angular.
+- **RxJS** - реактивная работа с данными и управление состоянием приложения.
+- **Slick Carousel** - создание интерактивных слайдеров.
 
-## Running unit tests
+## Запуск проекта
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Для локального запуска потребуется установленный Node.js и npm.
 
-## Running end-to-end tests
+### 1. Клонирование репозитория
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+git clone https://github.com/Kryanrd/macaroons-angular.git
+cd macaroons-angular
+```
 
-## Further help
+### 2. Установка зависимостей
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Выполните команду в корневой папке проекта:
+
+```bash
+npm install
+```
+
+### 3. Запуск приложения
+
+Запустите локальный сервер разработки:
+
+```bash
+npm start
+```
+
+После запуска приложение будет доступно по адресу:
+
+`http://localhost:4200/`
+
+
+## Сборка проекта
+
+Для создания production-сборки выполните:
+
+```bash
+npm run build
+```
+
+Собранные файлы приложения будут размещены в папке `dist/`.
